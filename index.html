@@ -1,1 +1,36 @@
-<h1>WELCOME TO NGHI TRUONG’s PAGES</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/admin/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <script defer src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/admin/assets/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <script defer src="/admin/assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="/admin/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="/admin/assets/node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+
+  <script defer src="/admin/assets/node_modules/angular/angular.min.js"></script>
+  <script defer src="/admin/assets/node_modules/angular-route/angular-route.min.js"></script>
+  <script defer src="/admin/app-admin.js"></script>
+  <script defer src="/assets/js/app-services.js"></script>
+  <script defer src="/admin/product/product-controller.js"></script>
+  <script defer src="/admin/order/order-controller.js"></script>
+  <script defer src="/admin/auth/authorize-controller.js"></script>
+</head>
+
+<body ng-app="admin-app" ng-controller="admin-ctrl" class="container">
+  <header class="text-uppercase">
+    <h4 class="alert alert-success mt-3">website administration</h4>
+  </header>
+  <div ng-include="'/admin/layout/navbar.html'"></div>
+  <main ng-view></main>
+  <footer></footer>
+</body>
+
+</html>
