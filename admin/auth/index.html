@@ -1,0 +1,20 @@
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th ng-repeat="role in roles track by role.name">{{role.name}}</th>
+      <th>Update</th>
+    </tr>
+  <tbody>
+    <tr ng-repeat="user in users track by user.username">
+      <td>{{user.username}}</td>
+      <td ng-repeat="role in roles track by role.name">
+        <input id="checkbox-{{user.username}}-{{role.name}}" type="checkbox" ng-checked="checkRole(user, role)"
+          ng-click="updateRole(user, role)">
+        <label for="checkbox-{{user.username}}-{{role.name}}"></label>
+      </td>
+      <td style="width: 150px;"><button ng-click="logUser(user)" class="btn btn-success">Update</button></td>
+    </tr>
+  </tbody>
+  </thead>
+</table>

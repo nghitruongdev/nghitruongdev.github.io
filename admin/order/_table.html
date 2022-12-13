@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+    <thead class="table-warning">
+        <tr class="text-center">
+            <th>Order ID</th>
+            <th>Username</th>
+            <th>Recipient's name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Total</th>
+            <th>Time Ordered</th>
+            <th>View Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="od in orders track by od.id">
+            <td class="text-center">#{{od.id}}</td>
+            <td class="text-center">{{od.username}}</td>
+            <td class="text-center">{{od.fullName}}</td>
+            <td class="text-center">{{od.email}}</td>
+            <td class="text-center">{{od.phone}}</td>
+            <td class="text-center">{{od.amount | currency: 'VNĐ '}}</td>
+            <td class="text-center">{{od.createTime | date: 'hh:mm dd-MM-yyyy'}}</td>
+            <td class="text-center"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#detailModal" ng-click="viewDetail(od)">View</button></td>
+        </tr>
+    </tbody>
+</table>

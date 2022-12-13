@@ -1,0 +1,53 @@
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>ID</th>
+            <th style="width: 100px;">Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price
+                </td>
+            <th>Quantity</th>
+            <th>Available</th>
+            <th>Create Time</th>
+            <th style="width: 120px;">Edit</th>
+        </tr>
+    </thead>
+    <tbody class="">
+        <tr ng-repeat="prod in viewProducts| filter: search" class="align-middle">
+            <td>{{prod.id}}</td>
+            <td class="text-center"><img ng-src="{{prod.images.length && prod.images[0].url}}" alt={{prod.name}}
+                    style="max-width: 100px;">
+            </td>
+            <td class="">
+                <p>{{prod.name}}</p>
+                <p class="text-muted">Img link: {{prod.images.length && prod.images[0].url}}</p>
+            </td>
+            <td class="">{{prod.category.name}}</td>
+            <td class="text-end">{{prod.price | number: 2}}</td>
+            <td class="text-end">{{prod.quantity}}</td>
+            <td class="text-end">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                        ng-model="prod.available" ng-change="updateAvailable(prod)">
+                    <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Available</label>
+                </div>
+            </td>
+            <td class="text-center">{{prod.createDate | date: 'dd-MM-yyyy'}}</td>
+            <td class="">
+                <div class="d-flex justify-content-around">
+                    <button ng-click="edit(prod)" type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        <span class="visually-hidden">Edit</span>
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button ng-click="deleteProduct(prod)" class="btn btn-danger" type="button"
+                        ng-disabled="prod.isSold">
+                        <span class="visually-hidden">Delete</span>
+                        <i class="bi bi-trash-fill"></i></button>
+                </div>
+
+            </td>
+        </tr>
+    </tbody>
+    </table`
